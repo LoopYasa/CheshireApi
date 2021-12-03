@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 // 获取网易云登陆后的用户信息
 app.get('/api/wyuserinfo',(req, res) => {
     request({
-        url: 'http://localhost:3000/user/account',
+        url: 'https://netease-cloud-music-api-seven-omega.vercel.app/user/account',
         method:'GET',
         headers: {
             Cookie: req.query.cookie
@@ -62,7 +62,7 @@ app.get('/api/wyusersonglist', (req, res) => {
         url: 'https://netease-cloud-music-api-seven-omega.vercel.app/user/playlist',
         method:'GET',
         headers: {
-            cookie: req.query.cookie
+            Cookie: req.query.cookie
         },
         qs: {
             uid: req.query.id
@@ -78,7 +78,7 @@ app.get('/api/accountinfo', (req, res) => {
         url: 'https://netease-cloud-music-api-seven-omega.vercel.app/user/subcount',
         method:'GET',
         headers: {
-            cookie: req.query.cookie
+            Cookie: req.query.cookie
         }
     },function (error,response, body) {
         res.send(body)
@@ -91,7 +91,7 @@ app.get('/api/accountmoreinfo', (req, res) => {
         url: 'https://netease-cloud-music-api-seven-omega.vercel.app/user/detail',
         method:'GET',
         headers: {
-            cookie: req.query.cookie
+            Cookie: req.query.cookie
         },
         qs: {
             uid: req.query.id
@@ -107,7 +107,7 @@ app.get('/api/loginuserlist', (req, res) => {
         url: 'https://netease-cloud-music-api-seven-omega.vercel.app/playlist/detail',
         method:'GET',
         headers: {
-            cookie: req.query.cookie
+            Cookie: req.query.cookie
         },
         qs: {
             id: req.query.id
