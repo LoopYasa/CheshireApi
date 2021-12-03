@@ -12,16 +12,29 @@ const { get } = require('http');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.all('*', function (req, res, next) {
-  if (!req.get('Origin')) return next();
-  // use "*" here to accept any origin
-  res.set('Access-Control-Allow-Origin', '*');
-  res.set('Access-Control-Allow-Methods', 'GET');
-  res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
-  // res.set('Access-Control-Allow-Max-Age', 3600);
-  if ('OPTIONS' == req.method) return res.send(200);
-  next();
-});
+// app.all('*', function (req, res, next) {
+//   if (!req.get('Origin')) return next();
+//   // use "*" here to accept any origin
+//   res.set('Access-Control-Allow-Origin', '*');
+//   res.set('Access-Control-Allow-Methods', 'GET');
+//   res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+//   // res.set('Access-Control-Allow-Max-Age', 3600);
+//   if ('OPTIONS' == req.method) return res.send(200);
+//   next();
+// });
+
+app.use((req, res, next) => {
+  //设置请求头
+  res.set({
+      'Access-Control-Allow-Credentials': true,
+      'Access-Control-Max-Age': 1728000,
+      'Access-Control-Allow-Origin': req.headers.origin || '*',
+      'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type',
+      'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
+      'Content-Type': 'application/json; charset=utf-8'
+  })
+  req.method === 'OPTIONS' ? res.status(204).end() : next()
+})
 
 
 let cookie = ""
