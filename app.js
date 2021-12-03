@@ -32,7 +32,6 @@ app.get('/', (req, res) => {
 
 // 获取网易云登陆后的用户信息
 app.get('/api/wyuserinfo',(req, res) => {
-    console.log(req.query.cookie)
     request({
         url: 'https://netease-cloud-music-api-seven-omega.vercel.app/user/account',
         method:'GET',
@@ -40,8 +39,7 @@ app.get('/api/wyuserinfo',(req, res) => {
             cookie: req.query.cookie
         }
     },function (error, response, body) {
-        console.log(body)
-        res.send(body)
+        res.send(req)
     })
 })
 
