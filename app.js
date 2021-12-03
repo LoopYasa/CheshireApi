@@ -52,7 +52,7 @@ app.get('/api/wyuserinfo',(req, res) => {
             cookie: req.query.cookie
         }
     },function (error, response, body) {
-        res.send(req)
+        res.send(body)
     })
 })
 
