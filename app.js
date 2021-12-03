@@ -46,10 +46,10 @@ app.get('/', (req, res) => {
 // 获取网易云登陆后的用户信息
 app.get('/api/wyuserinfo',(req, res) => {
     request({
-        url: 'https://netease-cloud-music-api-seven-omega.vercel.app/user/account',
+        url: 'http://localhost:3000/user/account',
         method:'GET',
         headers: {
-            cookie: req.query.cookie
+            Cookie: req.query.cookie
         }
     },function (error, response, body) {
         res.send(body)
