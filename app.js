@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 app.get('/api/wyuserinfo',(req, res) => {
     console.log(req.query.cookie)
     request({
-        url: 'http://localhost:3000/user/account',
+        url: 'https://netease-cloud-music-api-seven-omega.vercel.app/user/account',
         method:'GET',
         headers: {
             cookie: req.query.cookie
@@ -48,7 +48,7 @@ app.get('/api/wyuserinfo',(req, res) => {
 // 获取网易云登陆后的用户歌单
 app.get('/api/wyusersonglist', (req, res) => {
     request({
-        url: 'http://localhost:3000/user/playlist',
+        url: 'https://netease-cloud-music-api-seven-omega.vercel.app/user/playlist',
         method:'GET',
         headers: {
             cookie: req.query.cookie
@@ -64,7 +64,7 @@ app.get('/api/wyusersonglist', (req, res) => {
 // 获取账号信息
 app.get('/api/accountinfo', (req, res) => {
     request({
-        url: 'http://localhost:3000/user/subcount',
+        url: 'https://netease-cloud-music-api-seven-omega.vercel.app/user/subcount',
         method:'GET',
         headers: {
             cookie: req.query.cookie
@@ -77,7 +77,7 @@ app.get('/api/accountinfo', (req, res) => {
 // 获取用户详情
 app.get('/api/accountmoreinfo', (req, res) => {
     request({
-        url: 'http://localhost:3000/user/detail',
+        url: 'https://netease-cloud-music-api-seven-omega.vercel.app/user/detail',
         method:'GET',
         headers: {
             cookie: req.query.cookie
@@ -93,7 +93,7 @@ app.get('/api/accountmoreinfo', (req, res) => {
 // 获取网易云登陆后的歌单信息
 app.get('/api/loginuserlist', (req, res) => {
     request({
-        url: 'http://localhost:3000/playlist/detail',
+        url: 'https://netease-cloud-music-api-seven-omega.vercel.app/playlist/detail',
         method:'GET',
         headers: {
             cookie: req.query.cookie
